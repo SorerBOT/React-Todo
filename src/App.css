@@ -32,9 +32,9 @@ html, body, #root {
 	justify-content: start;
 }
 .button {
+	background-color:hsl(235, 24%, 19%);
 	cursor: pointer;
 	margin: 0 10px 0 10px;
-	background-color: hsl(235, 24%, 19%);
 	width: 32px;
 	height: 32px;
 	border-style: solid;
