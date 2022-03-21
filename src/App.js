@@ -5,6 +5,7 @@ import backgroundImage from "./Assets/bg-desktop-dark.jpg"
 import './App.css';
 
 function App() {
+  const [displayMode, setDisplayMode] = useState(1);
   const [tasks, setTasks] = useState([
     {
       description: "Complete online JavaScript course",
@@ -45,11 +46,23 @@ function App() {
       })
     );
   }
+  const clearCompleted = (tasks) => {
+    // setTasks(
+    //   tasks.map((task) => {
+    //     if (!task.complete) return task;
+    //   })
+    // );
+  }
+  const toggleDisplayMode = (displayMode, tasks) => {
+    if (displayMode === 1) return tasks;
+    if (displayMode === 2) return tasks.filter(task => !task.complete);
+    if (displayMode === 3) return tasks.filter(task => task.complete);
+  }
   return (
     <>
       <img src={backgroundImage} className="background-image"></img>
       <Header />
-      <Tasks tasks={tasks} toggleTaskStatus={toggleTaskStatus} ></Tasks>
+      <Tasks tasks={toggleDisplayMode(displayMode, tasks)} toggleTaskStatus={toggleTaskStatus} setDisplayMode={setDisplayMode} currentDisplayMode={displayMode} clearCompleted={clearCompleted} allTasks={tasks}></Tasks>
     </>
   );
 }
