@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&family=Spartan:wght@700&display=swap');
+html, body, #root {
+	height: 100%;
+	width: 100%;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+	background-color: hsl(235, 21%, 11%);
+	align-items: center;
+	justify-content: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#root, .list {
+	display: flex;
+	flex-direction: column;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.list {
+	border-radius: 5px;
+	z-index: 1;
+	background-color: hsl(235, 24%, 19%);
+	justify-content: space-around;
+	gap: 5px;
+	width: 30%;
 }
-
-.App-link {
-  color: #61dafb;
+.task {
+	color: white;
+	border-bottom-style: solid;
+	border-width: 1px;
+	border-color: white;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: start;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button {
+	cursor: pointer;
+	margin: 0 10px 0 10px;
+	background-color: hsl(235, 24%, 19%);
+	width: 32px;
+	height: 32px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: white;
+	border-radius: 50%;
+}
+.button > img {
+	height: 100%;
+	width: 100%;
+}
+.description:hover {
+	cursor: pointer;
+	/* text-decoration: line-through; */
+}
+.background-image {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	z-index: 0;
 }
