@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Tasks from "./Components/Tasks";
+import Header from "./Components/Header";
 import backgroundImage from "./Assets/bg-desktop-dark.jpg"
 import './App.css';
 
@@ -47,6 +48,7 @@ function App() {
   return (
     <>
       <img src={backgroundImage} className="background-image"></img>
+      <Header />
       <Tasks tasks={tasks} toggleTaskStatus={toggleTaskStatus} ></Tasks>
     </>
   );

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&family=Spartan:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&family=Spartan:wght@700&display=swap');
 html, body, #root {
 	font-family: 'Josefin Sans', sans-serif;
 	height: 100%;
@@ -13,8 +13,20 @@ html, body, #root {
 	display: flex;
 	flex-direction: column;
 }
+.header {
+	width: 30%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 1;
+	font-size: large;
+	color: white;
+	font-weight: bolder;
+}
 .list {
-	border-radius: 5px;
+	font-weight: lighter;
+	border-radius: 5px 5px 0 0;
 	z-index: 1;
 	background-color: hsl(235, 24%, 19%);
 	justify-content: space-around;
@@ -22,6 +34,7 @@ html, body, #root {
 	width: 30%;
 }
 .task {
+	padding: 5px;
 	color: white;
 	border-bottom-style: solid;
 	border-width: 1px;
