@@ -58,9 +58,9 @@ function App() {
   }
   return (
     <>
-      <img src={backgroundImage} className="background-image"></img>
+      <img src={backgroundImage} alt="" className="background-image"></img>
       <Header />
-      <Tasks tasks={toggleDisplayMode(displayMode, tasks)} toggleTaskStatus={toggleTaskStatus} setDisplayMode={setDisplayMode} currentDisplayMode={displayMode} clearCompleted={clearCompleted} allTasks={tasks}></Tasks>
+      <Tasks setTasks={setTasks} tasks={toggleDisplayMode(displayMode, tasks)} toggleTaskStatus={toggleTaskStatus} setDisplayMode={setDisplayMode} currentDisplayMode={displayMode} clearCompleted={clearCompleted} allTasks={tasks}></Tasks>
     </>
   );
 }
