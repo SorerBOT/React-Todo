@@ -47,11 +47,9 @@ function App() {
     );
   }
   const clearCompleted = (tasks) => {
-    // setTasks(
-    //   tasks.map((task) => {
-    //     if (!task.complete) return task;
-    //   })
-    // );
+    setTasks(
+      tasks.filter((task) => !task.complete)
+    );
   }
   const toggleDisplayMode = (displayMode, tasks) => {
     if (displayMode === 1) return tasks;
