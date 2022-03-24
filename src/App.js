@@ -3,7 +3,7 @@ import Tasks from "./Components/Tasks";
 import backgroundImageDark from "./Assets/bg-desktop-dark.jpg";
 import backgroundImageLight from "./Assets/bg-desktop-light.jpg";
 import Header from "./Components/Header";
-import { dark, light, backgroundColourDark, backgroundColourLight } from "./Utils/Colours";
+import { backgroundColourDark, backgroundColourLight } from "./Utils/Colours";
 import './App.css';
 
 function App() {

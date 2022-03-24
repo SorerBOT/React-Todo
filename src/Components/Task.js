@@ -12,7 +12,7 @@ export default function Task({ theme, task, toggleTaskStatus }) {
                 backgroundColor: theme ? dark : light,
                 borderColor: theme ? light : dark
             }} className="button" onClick={() => toggleTaskStatus(task)}>
-                {task.complete && <img src={taskComplete} />}
+                {task.complete && <img src={taskComplete} alt="" />}
             </button>
             <h3 className="description" style={{
                 textDecoration: task.complete ? "line-through" : "none",

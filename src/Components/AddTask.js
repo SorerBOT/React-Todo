@@ -1,4 +1,3 @@
-import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
 import { dark, light } from "../Utils/Colours";
 
@@ -10,6 +9,7 @@ export default function AddTask({ setTasks, allTasks, theme }) {
                 backgroundColor: theme ? dark : light
             }} className="button" onClick={() => {
                 if (!description) return;
+                if (allTasks.filter((task) => task.description.trim().toLowerCase() === description.trim().toLowerCase())) return alert("Specified task description already exists.");
                 setTasks([
                     ...allTasks,
                     {
