@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Tasks from "./Components/Tasks";
-import backgroundImage from "./Assets/bg-desktop-dark.jpg";
+import backgroundImageDark from "./Assets/bg-desktop-dark.jpg";
+import backgroundImageLight from "./Assets/bg-desktop-light.jpg";
 import Header from "./Components/Header";
-import WeatherDisplay from "./Components/WeatherDisplay";
 import './App.css';
 
 function App() {
@@ -60,7 +60,7 @@ function App() {
   }
   return (
     <>
-      <img src={backgroundImage} alt="" className="background-image"></img>
+      <img src={theme ? backgroundImageDark : backgroundImageLight} alt="" className="background-image"></img>
       <Header theme={theme} setTheme={setTheme} />
       <Tasks setTasks={setTasks} tasks={toggleDisplayMode(displayMode, tasks)} toggleTaskStatus={toggleTaskStatus} setDisplayMode={setDisplayMode} currentDisplayMode={displayMode} clearCompleted={clearCompleted} allTasks={tasks}></Tasks>
     </>
