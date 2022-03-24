@@ -1,10 +1,14 @@
+import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
+import { dark, light } from "../Utils/Colours";
 
-export default function AddTask({ setTasks, allTasks }) {
+export default function AddTask({ setTasks, allTasks, theme }) {
     const [description, setDescription] = useState("");
     return (
-        <div className="task add-task" >
-            <button className="button" onClick={() => {
+        <div className="task add-task" style={{ backgroundColor: theme ? dark : light }} >
+            <button style={{
+                backgroundColor: theme ? dark : light
+            }} className="button" onClick={() => {
                 if (!description) return;
                 setTasks([
                     ...allTasks,
@@ -18,7 +22,14 @@ export default function AddTask({ setTasks, allTasks }) {
             }}></button>
             <input onChange={(event) => {
                 setDescription(event.target.value);
-            }} className="set-description" type="text" placeholder="Create a new todo..." value={description}></input>
+            }} className="set-description" style={{
+                placeholder: {
+                    color: theme ? "grey" : dark
+                },
+                focus: {
+                    color: theme ? "white" : "grey"
+                }
+            }} type="text" placeholder="Create a new todo..." value={description}></input>
         </div >
     )
 }

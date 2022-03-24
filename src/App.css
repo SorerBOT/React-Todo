@@ -5,7 +5,6 @@ html, body, #root {
 	width: 100%;
 }
 #root {
-	background-color:hsl(235, 21%, 11%);
 	align-items: center;
 	justify-content: center;
 }
@@ -36,32 +35,29 @@ html, body, #root {
 	align-items: center;
 }
 .list {
+	border-radius: 5px;
 	font-weight: lighter;
+	overflow: hidden;
 	border-radius: 5px;
 	z-index: 1;
-	background-color: hsl(235, 24%, 19%);
 	justify-content: space-around;
 	gap: 5px;
 	width: 100%;
 }
 .task {
 	padding: 5px;
-	color: white;
 	border-bottom-style: solid;
 	border-width: 1px;
-	border-color: white;
 	align-items: center;
 	justify-content: start;
 }
 .button {
-	background-color:hsl(235, 24%, 19%);
 	cursor: pointer;
 	margin: 0 10px 0 10px;
 	width: 32px;
 	height: 32px;
 	border-style: solid;
 	border-width: 2px;
-	border-color: white;
 	border-radius: 50%;
 }
 .button > img {
@@ -98,11 +94,10 @@ html, body, #root {
 }
 .add-task {
 	border-radius: 5px;
-	width: 100%;
+	width: 710px;
 	border: none;
 	z-index: 1;
-	background-color:hsl(235, 24%, 19%);
-	padding: 0;
+	padding: 5px;
 }
 .set-description {
 	margin: 1em 0 1em 0;
@@ -111,13 +106,6 @@ html, body, #root {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: bold;
 	font-size: large;
-}
-.set-description::placeholder {
-	color: grey;
-	opacity: 1;
-}
-.set-description:focus {
-	color: white;
 }
 .weather {
 	padding: 0;

@@ -3,6 +3,7 @@ import Tasks from "./Components/Tasks";
 import backgroundImageDark from "./Assets/bg-desktop-dark.jpg";
 import backgroundImageLight from "./Assets/bg-desktop-light.jpg";
 import Header from "./Components/Header";
+import { dark, light, backgroundColourDark, backgroundColourLight } from "./Utils/Colours";
 import './App.css';
 
 function App() {
@@ -59,11 +60,13 @@ function App() {
     if (displayMode === 3) return tasks.filter(task => task.complete);
   }
   return (
-    <>
+    <div id="root" style={{
+      backgroundColor: theme ? backgroundColourDark : backgroundColourLight
+    }}>
       <img src={theme ? backgroundImageDark : backgroundImageLight} alt="" className="background-image"></img>
       <Header theme={theme} setTheme={setTheme} />
-      <Tasks setTasks={setTasks} tasks={toggleDisplayMode(displayMode, tasks)} toggleTaskStatus={toggleTaskStatus} setDisplayMode={setDisplayMode} currentDisplayMode={displayMode} clearCompleted={clearCompleted} allTasks={tasks}></Tasks>
-    </>
+      <Tasks theme={theme} setTasks={setTasks} tasks={toggleDisplayMode(displayMode, tasks)} toggleTaskStatus={toggleTaskStatus} setDisplayMode={setDisplayMode} currentDisplayMode={displayMode} clearCompleted={clearCompleted} allTasks={tasks}></Tasks>
+    </div >
   );
 }
 

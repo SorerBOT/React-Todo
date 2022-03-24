@@ -1,20 +1,21 @@
 import AddTask from "./AddTask"
 import Task from "./Task"
 import Button from "./Button"
-
-export default function Tasks({ setTasks, tasks, toggleTaskStatus, setDisplayMode, currentDisplayMode, clearCompleted, allTasks }) {
+import { dark, light } from "../Utils/Colours"
+export default function Tasks({ theme, setTasks, tasks, toggleTaskStatus, setDisplayMode, currentDisplayMode, clearCompleted, allTasks }) {
     return (
-
         <div className="menu">
-            <AddTask setTasks={setTasks} allTasks={allTasks} />
-            <div className="list">
+            <AddTask theme={theme} setTasks={setTasks} allTasks={allTasks} />
+            <div className="list" style={{
+                backgroundColor: theme ? dark : light
+            }}>
                 {tasks.map((task) => (
-                    <Task task={task} key={task.id} toggleTaskStatus={toggleTaskStatus} />
+                    <Task theme={theme} task={task} key={task.id} toggleTaskStatus={toggleTaskStatus} />
                 ))}
                 <div className="footer">
                     <h5>{tasks.length} tasks left</h5>
                     <div>
-                        <Button displayMode={1} text="All" setDisplayMode={setDisplayMode} currentDisplayMode={currentDisplayMode} />
+                        <Button theme={theme} displayMode={1} text="All" setDisplayMode={setDisplayMode} currentDisplayMode={currentDisplayMode} />
                         <Button displayMode={2} text="Active" setDisplayMode={setDisplayMode} currentDisplayMode={currentDisplayMode} />
                         <Button displayMode={3} text="Completed" setDisplayMode={setDisplayMode} currentDisplayMode={currentDisplayMode} />
                     </div>

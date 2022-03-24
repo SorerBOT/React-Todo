@@ -1,12 +1,14 @@
-export default function Button({ displayMode, text, setDisplayMode, currentDisplayMode }) {
+import { buttonTextColour, currentDisplayModeColour } from "../Utils/Colours";
+export default function Button({ theme, displayMode, text, setDisplayMode, currentDisplayMode }) {
     return (
         <>
             <button
                 className="buttons"
-                style={{ color: displayMode === currentDisplayMode ? "hsl(220, 98%, 61%)" : "hsl(233, 14%, 35%)" }}
+                style={{ color: displayMode === currentDisplayMode ? currentDisplayModeColour : buttonTextColour }}
                 onClick={() => {
                     setDisplayMode(displayMode);
-                }}>{text}</button>
+                }}>{text}
+            </button>
         </>
     )
 }
