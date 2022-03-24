@@ -60,7 +60,6 @@ function App() {
   return (
     <>
       <img src={backgroundImage} alt="" className="background-image"></img>
-      <WeatherDisplay />
       <Header />
       <Tasks setTasks={setTasks} tasks={toggleDisplayMode(displayMode, tasks)} toggleTaskStatus={toggleTaskStatus} setDisplayMode={setDisplayMode} currentDisplayMode={displayMode} clearCompleted={clearCompleted} allTasks={tasks}></Tasks>
     </>

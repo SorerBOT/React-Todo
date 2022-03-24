@@ -14,7 +14,7 @@ html, body, #root {
 	display: flex;
 	flex-direction: column;
 }
-.header, .task, .footer {
+.header, .task, .footer, .header-functionality {
 	display: flex;
 	flex-direction: row;
 }
@@ -118,4 +118,17 @@ html, body, #root {
 }
 .set-description:focus {
 	color: white;
+}
+.weather {
+	padding: 0;
+	z-index: 1;
+}
+.header-functionality {
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+.theme {
+	height: 50px; 
+	width: 50px;
 }
