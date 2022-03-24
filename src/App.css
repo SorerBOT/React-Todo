@@ -129,6 +129,10 @@ html, body, #root {
 	justify-content: center;
 }
 .theme {
-	height: 50px; 
+	background: none;
+	border: none;
+}
+.theme > img {
+	height: 50px;
 	width: 50px;
 }

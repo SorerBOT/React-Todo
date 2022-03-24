@@ -1,5 +1,4 @@
 import { useFetch } from "react-async";
-import { useEffect } from "react";
 import config from "../Config.json";
 
 export default function WeatherDisplay() {

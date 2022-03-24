@@ -6,6 +6,7 @@ import WeatherDisplay from "./Components/WeatherDisplay";
 import './App.css';
 
 function App() {
+  const [theme, setTheme] = useState(true);
   const [displayMode, setDisplayMode] = useState(1);
   const [tasks, setTasks] = useState([
     {
@@ -60,7 +61,7 @@ function App() {
   return (
     <>
       <img src={backgroundImage} alt="" className="background-image"></img>
-      <Header />
+      <Header theme={theme} setTheme={setTheme} />
       <Tasks setTasks={setTasks} tasks={toggleDisplayMode(displayMode, tasks)} toggleTaskStatus={toggleTaskStatus} setDisplayMode={setDisplayMode} currentDisplayMode={displayMode} clearCompleted={clearCompleted} allTasks={tasks}></Tasks>
     </>
   );
