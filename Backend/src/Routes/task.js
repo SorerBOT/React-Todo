@@ -25,16 +25,23 @@ router.get("/get", async (req, res) => {
     });
     res.send(tasks);
 });
+router.get("/clear", async (req, res) => {
+    const removal = await Task.deleteMany({ complete: true });
+    res.send(`Removed ${removal.deletedCount} completed Tasks.`);
+});
 
-router.post("/post", (req, res) => {
+router.post("/post", async (req, res) => {
     const task = new Task({
         description: req.body.description,
         complete: req.body.complete,
         id: req.body.id
     });
-    await Task.findOneAndReplace({ description: task.description }, task, {
+    await Task.findOneAndReplace({ description: task.description }, {
+        description: task.description,
+        complete: task.complete,
+        id: task.id
+    }, {
         upsert: true
     });
-    task.save();
     res.send("POST TASKS");
 });

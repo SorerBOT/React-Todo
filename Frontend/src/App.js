@@ -18,6 +18,12 @@ function App() {
       }).catch((err) => err);
   }, []);
   const toggleTaskStatus = (taskToChange) => {
+    console.log(taskToChange);
+    axios.post("http://localhost:3001/tasks/post", {
+      description: taskToChange.description,
+      complete: !taskToChange.complete,
+      id: taskToChange.id
+    }).catch((err) => { return console.error(err) });
     setTasks(
       tasks.map((task) => {
         task.complete = task.id === taskToChange.id ? !task.complete : task.complete;
@@ -26,6 +32,8 @@ function App() {
     );
   }
   const clearCompleted = (tasks) => {
+    if (!tasks.find((task) => task.complete)) return;
+    axios.get("http://localhost:3001/tasks/clear");
     setTasks(
       tasks.filter((task) => !task.complete)
     );
