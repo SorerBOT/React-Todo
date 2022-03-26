@@ -1,4 +1,8 @@
 import { Router } from "express";
+import { Task } from "../Mongo/Model/Task.js";
+import connectDB from "../Mongo/mongodb.js";
+
+connectDB();
 export const router = Router();
 
 router.use((req, res, next) => {
@@ -10,41 +14,27 @@ router.get("/", (req, res) => {
     res.send("Tasks");
 });
 
-router.get("/get", (req, res) => {
-    res.send([
-        {
-            description: "Complete online JavaScript course",
-            id: 1,
-            complete: false
-        },
-        {
-            description: "Jog around the park 3x",
-            id: 2,
-            complete: false
-        },
-        {
-            description: "10 minutes meditation",
-            id: 3,
-            complete: false
-        },
-        {
-            description: "Read for 1 hour",
-            id: 4,
-            complete: false
-        },
-        {
-            description: "Pick up groceries",
-            id: 5,
-            complete: false
-        },
-        {
-            description: "Complete Todo App on Frontend Mentor",
-            id: 6,
-            complete: false
-        }
-    ]);
+router.get("/get", async (req, res) => {
+    const tasks = [];
+    (await Task.find()).forEach((task) => {
+        tasks.push({
+            description: task.description,
+            complete: task.complete,
+            id: task.id
+        });
+    });
+    res.send(tasks);
 });
 
-router.get("/post", (req, res) => {
+router.post("/post", (req, res) => {
+    const task = new Task({
+        description: req.body.description,
+        complete: req.body.complete,
+        id: req.body.id
+    });
+    await Task.findOneAndReplace({ description: task.description }, task, {
+        upsert: true
+    });
+    task.save();
     res.send("POST TASKS");
 });

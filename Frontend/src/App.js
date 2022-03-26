@@ -17,9 +17,6 @@ function App() {
         setTasks(res.data);
       }).catch((err) => err);
   }, []);
-  useEffect(() => {
-    console.log(111111);
-  });
   const toggleTaskStatus = (taskToChange) => {
     setTasks(
       tasks.map((task) => {
