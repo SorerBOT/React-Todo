@@ -1,4 +1,4 @@
 {
-    "password": "2KdnwCjpXjqAWkhV",
-    "database": "Tasks"
+    "password": "Your Mongo DB Password",
+    "database": "Your DataBase Name"
 }
